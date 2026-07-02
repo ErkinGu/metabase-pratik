@@ -9,10 +9,10 @@ services:
       - 3000:3000
     environment:
       MB_DB_TYPE: postgres
-      MB_DB_DBNAME: metabaseappdb
+      MB_DB_DBNAME: ${MB_DB_DBNAME}
       MB_DB_PORT: 5432
-      MB_DB_USER: metabase
-      MB_DB_PASS: mysecretpassword
+      MB_DB_USER: ${MB_DB_USER}
+      MB_DB_PASS: ${MB_DB_PASS}
       MB_DB_HOST: postgres
     networks:
       - metanet1
@@ -26,9 +26,9 @@ services:
     container_name: postgres
     hostname: postgres
     environment:
-      POSTGRES_USER: metabase
-      POSTGRES_DB: metabaseappdb
-      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     volumes:
       - ./pg_data:/var/lib/postgresql/data
     networks:
